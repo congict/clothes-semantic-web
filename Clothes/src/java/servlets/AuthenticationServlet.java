@@ -4,7 +4,7 @@
  */
 package servlets;
 
-import ejb.UserBean;
+import ejb.SearchBean;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,16 +21,16 @@ public class AuthenticationServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("e-mail");
         String password = request.getParameter("password");
-        UserBean userData = new UserBean();
-        
-        if (userData.authenticate(email, password)) {
-            HttpSession session = request.getSession(true);
-            session.setAttribute("user", userData.getUser());
-            
-            response.sendRedirect("/Phasebook-war/jsp/profile.jsp");
-        } 
-        else
-            response.sendRedirect("/Phasebook-war/jsp/invaliduser.jsp");
+        SearchBean userData = new SearchBean();
+        userData.test();
+//        if (userData.authenticate(email, password)) {
+//            HttpSession session = request.getSession(true);
+//            session.setAttribute("user", userData.getUser());
+//            
+//            response.sendRedirect("/Phasebook-war/jsp/profile.jsp");
+//        } 
+//        else
+//            response.sendRedirect("/Phasebook-war/jsp/invaliduser.jsp");
         
     }
 

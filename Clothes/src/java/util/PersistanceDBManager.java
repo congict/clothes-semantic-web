@@ -19,9 +19,9 @@ public class PersistanceDBManager {
     }
     
     public EntityManager getConnectionUpdate(){
-        return Persistence.createEntityManagerFactory("Phasebook-ejbPU").createEntityManager();
+        return Persistence.createEntityManagerFactory("ClothesPU").createEntityManager();
     }
     public EntityManager getConnectionCreate(){
-        return Persistence.createEntityManagerFactory("Phasebook-ejbPUCreate").createEntityManager();
+        return Persistence.createEntityManagerFactory("ClothesPUCreate").createEntityManager();
     }
 }

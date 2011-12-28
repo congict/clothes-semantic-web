@@ -5,7 +5,8 @@
 package ejb;
 
 import dao.SearchDAO;
-
+import entities.Clothes;
+import java.util.List;
 
 /**
  *
@@ -13,23 +14,10 @@ import dao.SearchDAO;
  */
 public class SearchBean {
 
-    
     public SearchBean() {
     }
-    
-//    public boolean authenticate(String email, String password) {
-//        this.user = new UserDAO().authenticate(email, password);
-//        if (this.user != null) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
 
-    public void test(){
-        new SearchDAO().test();
+    public List<Clothes> search(String pattern) {
+        return new SearchDAO().search(pattern);
     }
-
-    
-    
 }

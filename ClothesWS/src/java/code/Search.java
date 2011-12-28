@@ -1,15 +1,16 @@
 package code;
 
 import ejb.SearchBean;
-import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
+import entities.Clothes;
+import java.util.List;
 
 @ManagedBean
 @RequestScoped
 public class Search {
     private String inputQuery="Semantic Search";
+    private List<Clothes> clothes;
     private boolean searchMade=false;
 
     
@@ -24,7 +25,7 @@ public class Search {
         
     }
 
-    public Boolean getSearchMade() {
+    public boolean getSearchMade() {
         return searchMade;
     }
 
@@ -39,10 +40,27 @@ public class Search {
     }
     
     public void searchMade(){
-        System.out.println("Method Invoked");
         this.searchMade=true;
         //do someting
-                new SearchBean().test();
+        this.clothes=new SearchBean().search(inputQuery);
+        
+        for (Clothes c : this.clothes)
+            System.out.println(c.toString());
+            
+    }
+
+    /**
+     * @return the clothes
+     */
+    public List<Clothes> getClothes() {
+        return clothes;
+    }
+
+    /**
+     * @param clothes the clothes to set
+     */
+    public void setClothes(List<Clothes> clothes) {
+        this.clothes = clothes;
     }
     
     

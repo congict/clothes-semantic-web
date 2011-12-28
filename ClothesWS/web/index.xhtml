@@ -22,7 +22,7 @@
             <div class="wrapper">
                 <h:form>
                     <h:inputText id="input" styleClass="color-blue" value="#{search.inputQuery}"/>
-                    <h:commandButton rendered="true" styleClass="hidden" value="Submit" action="clothes" >
+                    <h:commandButton rendered="true" styleClass="hidden" value="Submit" action="clothes" actionListener="#{search.searchMade()}" >
 
                     </h:commandButton>
                 </h:form>

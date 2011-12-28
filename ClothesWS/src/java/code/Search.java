@@ -11,9 +11,7 @@ import javax.faces.bean.SessionScoped;
 public class Search {
     private String inputQuery="Semantic Search";
     private boolean searchMade=false;
-    
-    private ArrayList<Product> results;
-    private ArrayList<Product> suggestions;
+
     
 
     public String getInputQuery() {

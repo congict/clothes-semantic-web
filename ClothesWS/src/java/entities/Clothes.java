@@ -34,7 +34,7 @@ public class Clothes implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
+//    @NotNull
     @Column(name = "idclothes")
     private Integer idclothes;
     @Size(max = 45)

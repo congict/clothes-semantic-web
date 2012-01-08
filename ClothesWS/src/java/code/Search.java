@@ -41,6 +41,7 @@ public class Search {
     public void searchMade(){
         this.searchMade=true;
         //do someting
+     //   this.clothes=new SearchBean().search(inputQuery);
         this.clothes=new SearchBean().search(inputQuery);
         
         for (Clothes c : this.clothes)

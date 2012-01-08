@@ -8,8 +8,8 @@ public class InsertTest {
     public static void main(String args[]) {
         Clothes c1 = new Clothes();
         c1.setGenre(true);
-        c1.setCategory("pants");
-        c1.setSubcategory("classicJeans");
+        c1.setCategory("Pants");
+        c1.setSubcategory("ClassicJeans");
         c1.setModel("Faded Chino Jeans");
         c1.setColor("dark blue");
         c1.setSize(38); //42
@@ -21,8 +21,8 @@ public class InsertTest {
 
         Clothes c2 = new Clothes();
         c2.setGenre(true);
-        c2.setCategory("pants");
-        c2.setSubcategory("regularFitJeans");
+        c2.setCategory("Pants");
+        c2.setSubcategory("RegularFitJeans");
         c2.setModel("Regular Stretch Jeans");
         c2.setColor("light grey");
         c2.setSize(40); //42 44 48
@@ -34,8 +34,8 @@ public class InsertTest {
 
         Clothes c3 = new Clothes();
         c3.setGenre(true);
-        c3.setCategory("pants");
-        c3.setSubcategory("slimFitJeans");
+        c3.setCategory("Pants");
+        c3.setSubcategory("SlimFitJeans");
         c3.setModel("Coloured Stretch Trousers");
         c3.setColor("mustard");
         c3.setSize(38);
@@ -46,8 +46,8 @@ public class InsertTest {
 
         Clothes c4 = new Clothes();
         c4.setGenre(true);
-        c4.setCategory("pants");
-        c4.setSubcategory("looseFitJeans");
+        c4.setCategory("Pants");
+        c4.setSubcategory("LooseFitJeans");
         c4.setModel("Jeans");
         c4.setColor("dark blue");
         c4.setSize(48);
@@ -59,8 +59,8 @@ public class InsertTest {
 
         Clothes c5 = new Clothes();
         c5.setGenre(false);
-        c5.setCategory("pants");
-        c5.setSubcategory("bootCutJeans");
+        c5.setCategory("Pants");
+        c5.setSubcategory("BootCutJeans");
         c5.setModel("Skinny Jeans");
         c5.setColor("blue");
         c5.setSize(40);
@@ -71,8 +71,8 @@ public class InsertTest {
 
         Clothes c6 = new Clothes();
         c6.setGenre(false);
-        c6.setCategory("pants");
-        c6.setSubcategory("skinnyJeans");
+        c6.setCategory("Pants");
+        c6.setSubcategory("SkinnyJeans");
         c6.setModel("Slim Jeans");
         c6.setColor("blue");
         c6.setSize(44);
@@ -83,8 +83,8 @@ public class InsertTest {
 
         Clothes c7 = new Clothes();
         c7.setGenre(true);
-        c7.setCategory("pants");
-        c7.setSubcategory("slimFitJeans");
+        c7.setCategory("Pants");
+        c7.setSubcategory("SlimFitJeans");
         c7.setModel("Coloured Skinny Jeans");
         c7.setColor("black");
         c7.setSize(38);
@@ -96,8 +96,8 @@ public class InsertTest {
 
         Clothes c8 = new Clothes();
         c8.setGenre(true);
-        c8.setCategory("pants");
-        c8.setSubcategory("slimFitJeans");
+        c8.setCategory("Pants");
+        c8.setSubcategory("SlimFitJeans");
         c8.setModel("Fantasy Skinny Jeans");
         c8.setColor("dark blue");
         c8.setSize(40);
@@ -109,8 +109,8 @@ public class InsertTest {
 
         Clothes c9 = new Clothes();
         c9.setGenre(true);
-        c9.setCategory("shoes");
-        c9.setSubcategory("casualShoes");
+        c9.setCategory("Shoes");
+        c9.setSubcategory("CasualShoes");
         c9.setModel("Leather Sport Blucher");
         c9.setColor("black");
         c9.setSize(42);
@@ -122,8 +122,8 @@ public class InsertTest {
 
         Clothes c10 = new Clothes();
         c10.setGenre(true);
-        c10.setCategory("shoes");
-        c10.setSubcategory("casualShoes");
+        c10.setCategory("Shoes");
+        c10.setSubcategory("CasualShoes");
         c10.setModel("Leather Desert Boot");
         c10.setColor("lead");
         c10.setSize(44);
@@ -135,8 +135,8 @@ public class InsertTest {
 
         Clothes c11 = new Clothes();
         c11.setGenre(true);
-        c11.setCategory("shoes");
-        c11.setSubcategory("casualShoes");
+        c11.setCategory("Shoes");
+        c11.setSubcategory("CasualShoes");
         c11.setModel("Soft Oxford Shoe");
         c11.setColor("grey");
         c11.setSize(45);
@@ -148,8 +148,8 @@ public class InsertTest {
 
         Clothes c12 = new Clothes();
         c12.setGenre(true);
-        c12.setCategory("shoes");
-        c12.setSubcategory("casualShoes");
+        c12.setCategory("Shoes");
+        c12.setSubcategory("CasualShoes");
         c12.setModel("Herringbone Shoe");
         c12.setColor("grey");
         c12.setSize(45);
@@ -160,8 +160,8 @@ public class InsertTest {
 
         Clothes c13 = new Clothes();
         c13.setGenre(true);
-        c13.setCategory("shoes");
-        c13.setSubcategory("eveningShoes");
+        c13.setCategory("Shoes");
+        c13.setSubcategory("EveningShoes");
         c13.setModel("Edged Oxford Shoe");
         c13.setColor("black");
         c13.setSize(40);
@@ -172,8 +172,8 @@ public class InsertTest {
 
         Clothes c14 = new Clothes();
         c14.setGenre(false);
-        c14.setCategory("shoes");
-        c14.setSubcategory("wedgesShoes");
+        c14.setCategory("Shoes");
+        c14.setSubcategory("WedgesShoes");
         c14.setModel("Zip-Up Wedge Ankle Boot");
         c14.setColor("grey");
         c14.setSize(36);
@@ -185,8 +185,8 @@ public class InsertTest {
 
         Clothes c15 = new Clothes();
         c15.setGenre(false);
-        c15.setCategory("shoes");
-        c15.setSubcategory("wedgesShoes");
+        c15.setCategory("Shoes");
+        c15.setSubcategory("WedgesShoes");
         c15.setModel("Crepe Wedge");
         c15.setColor("copper");
         c15.setSize(38);
@@ -197,8 +197,8 @@ public class InsertTest {
 
         Clothes c16 = new Clothes();
         c16.setGenre(false);
-        c16.setCategory("shoes");
-        c16.setSubcategory("flatShoes");
+        c16.setCategory("Shoes");
+        c16.setSubcategory("FlatShoes");
         c16.setModel("Party Ballerina");
         c16.setColor("gold");
         c16.setSize(36);
@@ -209,8 +209,8 @@ public class InsertTest {
 
         Clothes c17 = new Clothes();
         c17.setGenre(false);
-        c17.setCategory("shoes");
-        c17.setSubcategory("flatShoes");
+        c17.setCategory("Shoes");
+        c17.setSubcategory("FlatShoes");
         c17.setModel("Flat Studded Court Shoe");
         c17.setColor("red");
         c17.setSize(39);
@@ -221,8 +221,8 @@ public class InsertTest {
         
         Clothes c18 = new Clothes();
         c18.setGenre(false);
-        c18.setCategory("shoes");
-        c18.setSubcategory("flatShoes");
+        c18.setCategory("Shoes");
+        c18.setSubcategory("FlatShoes");
         c18.setModel("Flat Furry Court Shoe");
         c18.setColor("two-tone");
         c18.setSize(36);
@@ -233,8 +233,8 @@ public class InsertTest {
         
         Clothes c19 = new Clothes();
         c19.setGenre(true);
-        c19.setCategory("tie");
-        c19.setSubcategory("classicTie");
+        c19.setCategory("Tie");
+        c19.setSubcategory("ClassicTie");
         c19.setModel("Wide Check Tie");
         c19.setColor("brown");
         //c19.setSize(36);
@@ -246,8 +246,8 @@ public class InsertTest {
         
         Clothes c20 = new Clothes();
         c20.setGenre(true);
-        c20.setCategory("tie");
-        c20.setSubcategory("classicTie");
+        c20.setCategory("Tie");
+        c20.setSubcategory("ClassicTie");
         c20.setModel("False Plain Tie");
         c20.setColor("grey");
         //c19.setSize(36);
@@ -259,8 +259,8 @@ public class InsertTest {
         
         Clothes c21 = new Clothes();
         c21.setGenre(true);
-        c21.setCategory("tie");
-        c21.setSubcategory("thinTie");
+        c21.setCategory("Tie");
+        c21.setSubcategory("ThinTie");
         c21.setModel("Structured Tie");
         c21.setColor("marron");
         //c19.setSize(36);

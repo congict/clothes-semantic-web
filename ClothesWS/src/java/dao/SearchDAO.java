@@ -15,6 +15,18 @@ public class SearchDAO {
         this.dbManager = new PersistanceDBManager();
     }
 
+    public List<Clothes> getAllClothes() {
+        EntityManager em = this.dbManager.getConnectionUpdate();
+        Query q = em.createQuery("from Clothes");
+        List<Clothes> list = q.getResultList();
+
+        em.close();
+
+        Hibernate.initialize(list);
+
+        return list;
+    }
+
     public List<Clothes> search(String pattern) {
 
         EntityManager em = this.dbManager.getConnectionUpdate();

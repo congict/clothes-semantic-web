@@ -27,40 +27,66 @@ public class PopulateOntology {
         model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM, null);
         model.read("file:clothes.owl");
         init();
-        saveOWL();
+        //saveOWL();
     }
 
     private void init() {
-        createShoes();
-        // createPants();
+        createShoes("Patent_Leather_Oxford_Shoe","38","blue","cotton");
+        createPants("Patent_Leather_Oxford_Shoe","38","blue","cotton","jeans");
+        createTie("Wide_Check_Tie","blue","cotton");
     }
 
-    private void createShoes() {
+    private void createShoes(String indname,String dbsize,String dbcolor,String dbmaterial) {
         OntClass shoes = model.getOntClass(NamedSpace + "Shoes");
         OntClass size = model.getOntClass(NamedSpace + "Size");
         OntClass color = model.getOntClass(NamedSpace + "Color");
         OntClass material = model.getOntClass(NamedSpace + "Material");
 
-
-        Individual PatentLeatherOxford = model.createIndividual(NamedSpace + "Patent_Leather_Oxford", shoes);
+        Individual temp = model.createIndividual(NamedSpace + indname, shoes);
 
         Property hasSize = model.getProperty(NamedSpace + "hasSize");
         Property hasColor = model.getProperty(NamedSpace + "hasColor");
         Property hasMaterial = model.getProperty(NamedSpace + "isMadeOf");
 
-        PatentLeatherOxford.addProperty(hasSize, model.createIndividual(NamedSpace + "38", size));
-        PatentLeatherOxford.addProperty(hasColor, model.createIndividual(NamedSpace + "blue", color));
-        PatentLeatherOxford.addProperty(hasMaterial, model.createIndividual(NamedSpace + "cotton", material));
+        temp.addProperty(hasSize, model.createIndividual(NamedSpace + dbsize, size));
+        temp.addProperty(hasColor, model.createIndividual(NamedSpace + dbcolor, color));
+        temp.addProperty(hasMaterial, model.createIndividual(NamedSpace + dbmaterial, material));
+   
 
-        iterateStatement(PatentLeatherOxford, hasColor);
+        //       iterateStatement(temp, hasColor);
 //
     }
 
-    private void createPants() {
+    private void createPants(String indname,String dbsize,String dbcolor,String dbmaterial,String dbclass) {
+        OntClass pants = model.getOntClass(NamedSpace + dbclass);
+        OntClass size = model.getOntClass(NamedSpace + "Size");
+        OntClass color = model.getOntClass(NamedSpace + "Color");
+        OntClass material = model.getOntClass(NamedSpace + "Material");
+
+        Individual OrangeThreadJeans = model.createIndividual(NamedSpace + "Orange_Thread_Jeans", pants);
+
+        Property hasSize = model.getProperty(NamedSpace + "hasSize");
+        Property hasColor = model.getProperty(NamedSpace + "hasColor");
+        Property hasMaterial = model.getProperty(NamedSpace + "isMadeOf");
+
+        OrangeThreadJeans.addProperty(hasSize, model.createIndividual(NamedSpace + dbsize, size));
+        OrangeThreadJeans.addProperty(hasColor, model.createIndividual(NamedSpace + dbcolor, color));
+        OrangeThreadJeans.addProperty(hasMaterial, model.createIndividual(NamedSpace + dbmaterial, material));
+
+
     }
 
-    
-    
+    private void createTie(String indname,String dbcolor,String dbmaterial) {
+        OntClass tie = model.getOntClass(NamedSpace + "Tie");
+        OntClass color = model.getOntClass(NamedSpace + "Color");
+        OntClass material = model.getOntClass(NamedSpace + "Material");
+        Individual WideCheckTie = model.createIndividual(NamedSpace + indname, tie);
+        Property hasColor = model.getProperty(NamedSpace + "hasColor");
+        Property hasMaterial = model.getProperty(NamedSpace + "isMadeOf");
+        WideCheckTie.addProperty(hasColor, model.createIndividual(NamedSpace + dbcolor, color));
+        WideCheckTie.addProperty(hasMaterial, model.createIndividual(NamedSpace + dbmaterial, material));
+    }
+
     private void iterateStatement(Individual ind, Property prop) {
         StmtIterator x = ind.listProperties(prop);
 

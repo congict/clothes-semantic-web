@@ -22,7 +22,7 @@ public class SearchDAO {
         List<Clothes> list = null;
 
         try {
-            String query = "select u from Clothes u where u.name LIKE '%";
+            String query = "select u from Clothes u where u.model LIKE '%";
             query += pattern;
             query += "%'";
             qry = em.createQuery(query);

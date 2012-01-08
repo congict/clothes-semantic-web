@@ -27,7 +27,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Clothes.findBySize", query = "SELECT c FROM Clothes c WHERE c.size = :size"),
     @NamedQuery(name = "Clothes.findByColor", query = "SELECT c FROM Clothes c WHERE c.color = :color"),
     @NamedQuery(name = "Clothes.findByPrice", query = "SELECT c FROM Clothes c WHERE c.price = :price"),
-    @NamedQuery(name = "Clothes.findByImage", query = "SELECT c FROM Clothes c WHERE c.image = :image")})
+    @NamedQuery(name = "Clothes.findByImage", query = "SELECT c FROM Clothes c WHERE c.image = :image"),
+    @NamedQuery(name = "Clothes.findByComposition", query = "SELECT c FROM Clothes c WHERE c.composition = :composition")})
 public class Clothes implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -58,6 +59,9 @@ public class Clothes implements Serializable {
     @Size(max = 128)
     @Column(name = "image")
     private String image;
+    @Size(max = 45)
+    @Column(name = "composition")
+    private String composition;
 
     public Clothes() {
     }
@@ -136,6 +140,14 @@ public class Clothes implements Serializable {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getComposition() {
+        return composition;
+    }
+
+    public void setComposition(String composition) {
+        this.composition = composition;
     }
 
     @Override

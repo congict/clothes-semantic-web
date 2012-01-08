@@ -13,7 +13,6 @@ public class Search {
     private List<Clothes> clothes;
     private boolean searchMade=false;
 
-    
 
     public String getInputQuery() {
         return inputQuery;

@@ -42,10 +42,11 @@ public class Search {
         this.searchMade=true;
         //do someting
      //   this.clothes=new SearchBean().search(inputQuery);
-        this.clothes=new SearchBean().search(inputQuery);
+        //this.clothes=new SearchBean().search(inputQuery);
+        new SearchBean().searchSparql(inputQuery);
         
-        for (Clothes c : this.clothes)
-            System.out.println(c.toString());
+//        for (Clothes c : this.clothes)
+  //          System.out.println(c.toString());
             
     }
 

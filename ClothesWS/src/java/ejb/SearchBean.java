@@ -7,12 +7,12 @@ package ejb;
 import dao.SearchDAO;
 import entities.Clothes;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.lucene.queryParser.ParseException;
 import util.LuceneHandler;
+import util.SparqlHandler;
 
 /**
  *
@@ -33,6 +33,14 @@ public class SearchBean {
         }
         return null;
     }
+    
+    
+    public void searchSparql(String pattern) {
+        new SparqlHandler().search(pattern);
+    }
+    
+    
+    
     public List<Clothes> getAllClothes() {
         return new SearchDAO().getAllClothes();
     }

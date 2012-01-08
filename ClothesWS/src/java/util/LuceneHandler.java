@@ -69,14 +69,11 @@ public class LuceneHandler {
         for (Clothes c : clothes) {
 
             try {
-                
                 addDoc(w, c);
 
             } catch (IOException ex) {
                 Logger.getLogger(LuceneHandler.class.getName()).log(Level.SEVERE, null, ex);
             }
-
-
         }
         try {
             w.close();
@@ -85,7 +82,6 @@ public class LuceneHandler {
         } catch (IOException ex) {
             Logger.getLogger(LuceneHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     private void addDoc(IndexWriter w, Clothes c) throws IOException {
@@ -119,9 +115,10 @@ public class LuceneHandler {
             System.out.println((i + 1) + ". " + d.get("id"));
 
             for (Clothes c : clothes) {
-                if (c.getIdclothes() == Integer.parseInt(d.get("id"))) 
+                if (c.getIdclothes() == Integer.parseInt(d.get("id"))) {
                     clothes_result.add(c);
-                
+                }
+
             }
 
 

@@ -25,115 +25,66 @@ public class PopulateOntology {
 
     private String NamedSpace = "http://www.clothes.pt/ontologies/clothes.owl#";
     private OntModel model;
-    private List <Clothes> clothes;
+    private List<Clothes> clothes;
 
     public PopulateOntology() {
         model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM, null);
-        model.read("file:clothes.owl");
-        clothes= new SearchBean().getAllClothes();
+        model.read("file:old-clothes.owl");
+        clothes = new SearchBean().getAllClothes();
         init();
         saveOWL();
     }
 
     private void init() {
-        
-        for (Clothes c: clothes){
-            if(c.getCategory().equalsIgnoreCase("pants"))
-                createPants(c.getModel().replace(" ", "_"),Integer.toString(c.getSize()).replace(" ", "_"),c.getColor().replace(" ", "_"),c.getComposition().replace(" ", "_"),c.getSubcategory().replace(" ", "_"),c.getPrice());
-            else if (c.getCategory().equalsIgnoreCase("shoes"))
-                createShoes(c.getModel().replace(" ", "_"),Integer.toString(c.getSize()).replace(" ", "_"),c.getColor().replace(" ", "_"),c.getComposition().replace(" ", "_"),c.getSubcategory().replace(" ", "_"),c.getPrice());
-            else if (c.getCategory().equalsIgnoreCase("tie"))
-                createTie(c.getModel().replace(" ", "_"),c.getColor().replace(" ", "_"),c.getComposition().replace(" ", "_"),c.getSubcategory().replace(" ", "_"),c.getPrice());
+
+        for (Clothes c : clothes) {
+            if (c.getCategory().equalsIgnoreCase("tie")) {
+                createClothes(c, false);
+            }
+            else { 
+                createClothes(c,true);
+             }
         }
     }
 
-    private void createShoes(String indname,String dbsize,String dbcolor,String dbmaterial,String dbclass,float dbprice) {
-        System.out.println("dbclass: "+dbclass);
-        OntClass shoes = model.getOntClass(NamedSpace + dbclass);
-        OntClass size = model.getOntClass(NamedSpace + "Size");
+    private void createClothes(Clothes c, Boolean categoryHasSize) {
+
+        OntClass subCategory = model.getOntClass(NamedSpace + c.getSubcategory().replaceAll(" ", "_"));
+       
         OntClass color = model.getOntClass(NamedSpace + "Color");
         OntClass material = model.getOntClass(NamedSpace + "Material");
-
-        Individual temp = model.createIndividual(NamedSpace + indname, shoes);
-
-        Property hasSize = model.getProperty(NamedSpace + "hasSize");
+      
+        Individual temp = model.createIndividual(NamedSpace + c.getModel().replace(" ", "_"),subCategory);
+       
         Property hasColor = model.getProperty(NamedSpace + "hasColor");
         Property hasMaterial = model.getProperty(NamedSpace + "isMadeOf");
         
-        Property SizeData = model.getProperty(NamedSpace + "Size_Data");
+        Property ModelData = model.getProperty(NamedSpace + "Model_Data");      
         Property PriceData = model.getProperty(NamedSpace + "Price_Data");
         Property MaterialData = model.getProperty(NamedSpace + "Material_Data");
         Property ColourData = model.getProperty(NamedSpace + "Colour_Data");
         
-
-        temp.addProperty(hasSize, model.createIndividual(NamedSpace + dbsize, size));
-        temp.addProperty(hasColor, model.createIndividual(NamedSpace + dbcolor, color));
-        temp.addProperty(hasMaterial, model.createIndividual(NamedSpace + dbmaterial, material));
+        if (categoryHasSize){
+            OntClass size = model.getOntClass(NamedSpace + "Size");
+            Property hasSize = model.getProperty(NamedSpace + "hasSize");
+            Property SizeData = model.getProperty(NamedSpace + "Size_Data");
+            Individual indivSize = model.createIndividual(NamedSpace + c.getSize()+"", size);
+            temp.addProperty(hasSize, indivSize);
+            indivSize.addLiteral(SizeData, c.getSize());
+        }
         
-        temp.addLiteral(SizeData, dbsize);
-        temp.addLiteral(ColourData, dbcolor);
-        temp.addLiteral(MaterialData, dbmaterial);
-        temp.addLiteral(PriceData,dbprice);
+        Individual indivColor = model.createIndividual(NamedSpace + c.getColor().replace(" ","_"), color);
+        Individual indivMaterial = model.createIndividual(NamedSpace + c.getComposition().replace(" ","_"), material);
+                
+        temp.addProperty(hasColor, indivColor);
+        temp.addProperty(hasMaterial, indivMaterial);
+                
+        indivColor.addLiteral(ColourData, c.getColor());
+        indivMaterial.addLiteral(MaterialData, c.getComposition());
         
-        
-   
+        temp.addLiteral(PriceData, c.getPrice());
+        temp.addLiteral(ModelData, c.getModel());
 
-        //       iterateStatement(temp, hasColor);
-//
-    }
-
-    private void createPants(String indname,String dbsize,String dbcolor,String dbmaterial,String dbclass,float dbprice) {
-        System.out.println("dbclass: "+dbclass);
-        OntClass pants = model.getOntClass(NamedSpace + dbclass);
-        OntClass size = model.getOntClass(NamedSpace + "Size");
-        OntClass color = model.getOntClass(NamedSpace + "Colour");
-        OntClass material = model.getOntClass(NamedSpace + "Material");
-
-        Individual temp = model.createIndividual(NamedSpace + indname, pants);
-
-        Property hasSize = model.getProperty(NamedSpace + "hasSize");
-        Property hasColor = model.getProperty(NamedSpace + "hasColour");
-        Property hasMaterial = model.getProperty(NamedSpace + "isMadeOf");
-
-        Property SizeData = model.getProperty(NamedSpace + "Size_Data");
-        Property PriceData = model.getProperty(NamedSpace + "Price_Data");
-        Property MaterialData = model.getProperty(NamedSpace + "Material_Data");
-        Property ColourData = model.getProperty(NamedSpace + "Colour_Data");
-        
-
-        temp.addProperty(hasSize, model.createIndividual(NamedSpace + dbsize, size));
-        temp.addProperty(hasColor, model.createIndividual(NamedSpace + dbcolor, color));
-        temp.addProperty(hasMaterial, model.createIndividual(NamedSpace + dbmaterial, material));
-        
-        temp.addLiteral(SizeData, dbsize);
-        temp.addLiteral(ColourData, dbcolor);
-        temp.addLiteral(MaterialData, dbmaterial);
-        temp.addLiteral(PriceData,dbprice);
-
-
-    }
-
-    private void createTie(String indname,String dbcolor,String dbmaterial,String dbclass,float dbprice) {
-        System.out.println("dbclass: "+dbclass);
-        OntClass tie = model.getOntClass(NamedSpace + dbclass);
-        OntClass color = model.getOntClass(NamedSpace + "Color");
-        OntClass material = model.getOntClass(NamedSpace + "Material");
-        Individual temp = model.createIndividual(NamedSpace + indname, tie);
-        Property hasColor = model.getProperty(NamedSpace + "hasColour");
-        Property hasMaterial = model.getProperty(NamedSpace + "isMadeOf");
-        temp.addProperty(hasColor, model.createIndividual(NamedSpace + dbcolor, color));
-        temp.addProperty(hasMaterial, model.createIndividual(NamedSpace + dbmaterial, material));
-
-        Property PriceData = model.getProperty(NamedSpace + "Price_Data");
-        Property MaterialData = model.getProperty(NamedSpace + "Material_Data");
-        Property ColourData = model.getProperty(NamedSpace + "Colour_Data");
-
-        temp.addProperty(hasColor, model.createIndividual(NamedSpace + dbcolor, color));
-        temp.addProperty(hasMaterial, model.createIndividual(NamedSpace + dbmaterial, material));
-        
-        temp.addLiteral(ColourData, dbcolor);
-        temp.addLiteral(MaterialData, dbmaterial);
-        temp.addLiteral(PriceData,dbprice);
     }
 
     private void iterateStatement(Individual ind, Property prop) {

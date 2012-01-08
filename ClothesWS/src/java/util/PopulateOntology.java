@@ -63,7 +63,7 @@ public class PopulateOntology {
         OntClass color = model.getOntClass(NamedSpace + "Color");
         OntClass material = model.getOntClass(NamedSpace + "Material");
 
-        Individual OrangeThreadJeans = model.createIndividual(NamedSpace + "Orange_Thread_Jeans", pants);
+        Individual OrangeThreadJeans = model.createIndividual(NamedSpace + indname, pants);
 
         Property hasSize = model.getProperty(NamedSpace + "hasSize");
         Property hasColor = model.getProperty(NamedSpace + "hasColor");

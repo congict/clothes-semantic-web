@@ -31,9 +31,9 @@ import java.util.logging.Logger;
 
 public class SparqlHandler {
 
-    OntModel model;
-    public String NamedSpace = "http://www.clothes.pt/ontologies/clothes.owl#";
-    public ArrayList<Clothes> searchReults = new ArrayList<Clothes>();
+    private OntModel model;
+    private String NamedSpace = "http://www.clothes.pt/ontologies/clothes.owl#";
+    private ArrayList<Clothes> searchReults = new ArrayList<Clothes>();
 
     public SparqlHandler() {
         //search(null);
@@ -71,68 +71,7 @@ public class SparqlHandler {
             this.searchReults=sendResults(results);
             qe.close();
         }
-        
-        // Output query results	
-        //ResultSetFormatter.out(System.out, results, query);
-       
-//            while (varNames.hasNext()) {
-//                String next = varNames.next();
-//                System.out.println("data:  " + data.toString());
-//
-//            }
-//            if (data.isURIResource()) {
-//                StmtIterator listProperties = data.asResource().listProperties();
-//
-//                ArrayList<String> array = new ArrayList<String>();
-//                while (listProperties.hasNext()) {
-//                    Triple asTriple = listProperties.nextStatement().asTriple();
-//
-//                    if (asTriple.getObject().isLiteral()) {
-//                        array.add(asTriple.getObject().getLiteral().getValue().toString());
-//                        System.out.println(asTriple.getObject().getLiteral().getValue().toString());
-//                    } else {
-//                        array.add(asTriple.getObject().getLocalName());
-//                        System.out.println(asTriple.getObject().getLocalName());
-//                    }
-//
-//
-//                }
-//
-//                Clothes clothes = new Clothes();
-//                clothes.setSubcategory(array.get(0));
-//                clothes.setColor(array.get(1));
-//                clothes.setComposition(array.get(2));
-//                clothes.setPrice(Float.parseFloat(array.get(3)));
-//                clothes.setModel(array.get(4));
-//
-//                //System.out.println(clothes.getSubcategory());
-//
-//
-//
-//
-//
-//
-//
-//            }
-        //    System.out.println();
-
-            //System.out.println(model_data.toString());
-            //            StmtIterator listProperties = nextSolution.get("clothes").asResource().listProperties();
-            //            while (listProperties.hasNext()) {
-            //                Statement nextStatement = listProperties.nextStatement();
-            //                System.out.println(nextStatement);
-            //
-            //            }
-
-
-
-
-
-
-
-        // Important - free up resources used running the query
-        
-
+  
     }
     
     public ArrayList<Clothes> sendResults(ResultSet results){
@@ -150,7 +89,32 @@ public class SparqlHandler {
         return clothes;
     }
 
-    public static void main(String args[]) {
-        SparqlHandler sparqlHandler = new SparqlHandler();
+    
+//    public static void main(String args[]) {
+//        SparqlHandler sparqlHandler = new SparqlHandler();
+//    }
+
+    public String getNamedSpace() {
+        return NamedSpace;
+    }
+
+    public void setNamedSpace(String NamedSpace) {
+        this.NamedSpace = NamedSpace;
+    }
+
+    public OntModel getModel() {
+        return model;
+    }
+
+    public void setModel(OntModel model) {
+        this.model = model;
+    }
+
+    public ArrayList<Clothes> getSearchReults() {
+        return searchReults;
+    }
+
+    public void setSearchReults(ArrayList<Clothes> searchReults) {
+        this.searchReults = searchReults;
     }
 }

@@ -11,6 +11,7 @@ import java.util.List;
 public class Search {
     private String inputQuery="Semantic Search";
     private List<Clothes> clothes;
+    private List<Clothes> suggestions;
     private boolean searchMade=false;
 
 
@@ -41,14 +42,24 @@ public class Search {
     public void searchMade(){
         this.searchMade=true;
         //do someting
-     //   this.clothes=new SearchBean().search(inputQuery);
+        //   this.clothes=new SearchBean().search(inputQuery);
         //this.clothes=new SearchBean().search(inputQuery);
-        this.clothes = new SearchBean().searchSparql(inputQuery);
+        SearchBean searchBean = new SearchBean();
+        this.clothes = searchBean.searchSparql(inputQuery);   
+        this.suggestions = searchBean.getSuggestions();
 
-        
-        for (Clothes c : this.clothes)
+        for (Clothes c : this.clothes){           
             System.out.println("Clothes"+c.toString());
+        }
             
+    }
+    
+    public int getResultsSize(){
+        return this.clothes.size();
+    }
+    
+    public int getSuggestionsSize(){
+        return this.suggestions.size();
     }
 
     /**
@@ -64,7 +75,14 @@ public class Search {
     public void setClothes(List<Clothes> clothes) {
         this.clothes = clothes;
     }
-    
+
+    public List<Clothes> getSuggestions() {
+        return suggestions;
+    }
+
+    public void setSuggestions(List<Clothes> suggestions) {
+        this.suggestions = suggestions;
+    }
     
     
 }

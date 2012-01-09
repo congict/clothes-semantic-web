@@ -40,7 +40,7 @@
                         </ul>
                         <ul id="coda-nav-1" class="coda-nav right">				
                             <li id="coda-nav-left-1"><mark class="prev color-hot pointer">«</mark></li>
-                            <li><mark><span id="slide-number-1">1</span> of <span class="all-slides">2</span></mark></li>					
+                            <li><mark><span id="slide-number-1">1</span> of <span class="all-slides">#{search.getResultsSize()}</span></mark></li>					
                             <li id="coda-nav-right-1"><mark class="next color-hot pointer">»</mark></li>
                         </ul>								
                         <div class="clear"></div>
@@ -50,107 +50,102 @@
 
                         <div class="coda-slider-wrapper">
                             <div class="coda-slider preload" id="coda-slider-1">
-                                <div class="panel">
-                                    <div class="panel-wrapper">
-                                        <div class="left panel-box-small">
-                                            <img src="img/img1.jpg"/>
-                                        </div>
-                                        <div class="left panel-box-big">
 
-                                            <h1>Product Name</h1>
 
-                                            <div class="left panel-details-box">
-                                                <table>												
-                                                    <tr>
-                                                        <td class="tag cold">
-                                                            <p>Size</p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="description">
-                                                            <p>Description</p>
-                                                        </td>
-                                                    </tr>
 
-                                                    <tr>
-                                                        <td class="tag cold">
-                                                            <p>Color</p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="description">
-                                                            <p>Description</p>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td class="tag cold">
-                                                            <p>Composition</p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="description">
-                                                            <p>Description</p>
-                                                        </td>
-                                                    </tr>
-
-                                                </table>
+                                <ui:repeat value="#{search.clothes}" var="clothes">
+                                    <div class="panel">
+                                        <div class="panel-wrapper">
+                                            <div class="left panel-box-small">
+                                                <h:graphicImage id="image"
+                                                                alt="#{clothes.getModel()}"
+                                                                url="#{clothes.getImage()}">
+                                                </h:graphicImage>
                                             </div>
+                                            <div class="left panel-box-big">
+
+                                                <h1><h:outputText value="#{clothes.getModel()}" /></h1>
+
+                                                <div class="left panel-details-box">
+                                                    <table>												
+                                                        <tr>
+                                                            <td class="tag cold">
+                                                                <p>Size</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="description">
+                                                                <p><h:outputText value="#{clothes.getSize()}" /></p>
+                                                        </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="tag cold">
+                                                                <p>Color</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="description">
+                                                                <p><h:outputText value="#{clothes.getColor()}" /></p>
+                                                        </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="tag cold">
+                                                                <p>Composition</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="description">
+                                                                <p><h:outputText value="#{clothes.getComposition()}" /></p>
+                                                        </td>
+                                                        </tr>
+
+                                                    </table>
+                                                </div>
 
 
-                                            <div class="left panel-details-box">
-                                                <table>
-                                                    <tr>
-                                                        <td class="tag cold">
-                                                            <p>Category</p>
+                                                <div class="left panel-details-box">
+                                                    <table>
+                                                        <tr>
+                                                            <td class="tag cold">
+                                                                <p>Category</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="description">
+                                                                <p><h:outputText value="#{clothes.getCategory()}" /></p>
                                                         </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="description">
-                                                            <p>Description</p>
-                                                        </td>
-                                                    </tr>
+                                                        </tr>
 
-                                                    <tr>
-                                                        <td class="tag cold">
-                                                            <p>Sub-Category</p>
+                                                        <tr>
+                                                            <td class="tag cold">
+                                                                <p>Sub-Category</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="description">
+                                                                <p><h:outputText value="#{clothes.getSubcategory()}" /></p>
                                                         </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="description">
-                                                            <p>Description</p>
-                                                        </td>
-                                                    </tr>
+                                                        </tr>
 
-                                                    <tr>
-                                                        <td class="tag hot">
-                                                            <p>Price</p>
+                                                        <tr>
+                                                            <td class="tag hot">
+                                                                <p>Price</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="description">
+                                                                <p><h:outputText value="#{clothes.getPrice()}" /></p>
                                                         </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="description">
-                                                            <p>Description</p>
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+
                                             </div>
-
                                         </div>
                                     </div>
-                                </div>						
-
-                                <div class="panel">
-                                    <div class="panel-wrapper">
-                                        <div class="left panel-box-small">
-                                            <p:graphicImage value="#{image.myImage}" />
-                                        </div>
-                                        <div class="left panel-box-big">
-                                            <h1>Zé</h1>
-                                            <p>Manel</p>
-
-                                        </div>
-                                    </div>
-                                </div>
+                                </ui:repeat>
 
                             </div>
                         </div>
@@ -163,11 +158,11 @@
 
                     <div id="slide-nav" class="bold">
                         <ul class="left">
-                            <li><mark>Suggestions Related to <span class="color-hot">Skirt</span></mark></li>
+                            <li><mark>Suggestions to <span class="color-hot"><h:outputText value="#{search.showInput()}"></h:outputText></span></mark></li>
                         </ul>
                         <ul id="coda-nav-2" class="coda-nav right">				
                             <li id="coda-nav-left-2"><mark class="prev color-hot pointer">«</mark></li>
-                            <li><mark><span id="slide-number-2">1</span> of <span class="all-slides">2</span></mark></li>					
+                            <li><mark><span id="slide-number-2">1</span> of <span class="all-slides">#{search.getResultsSize()}</span></mark></li>	
                             <li id="coda-nav-right-2"><mark class="next color-hot pointer">»</mark></li>
                         </ul>								
                         <div class="clear"></div>	
@@ -177,29 +172,103 @@
                     <div class="slide-box">
                         <div class="coda-slider-wrapper">
                             <div class="coda-slider preload" id="coda-slider-2">
-                                <div class="panel">
-                                    <div class="panel-wrapper">
-                                        <div class="left panel-box">
-                                            <h1>Name</h1>
-                                            <p>Zé Manel</p>
-                                        </div>
-                                        <div class="left panel-box">
-                                            <h3>Description</h3>
-                                            <p>1</p>
+                                
+                                
+                                <ui:repeat value="#{search.suggestions}" var="clothes">
+                                    <div class="panel">
+                                        <div class="panel-wrapper">
+                                            <div class="left panel-box-small">
+                                                <h:graphicImage id="image"
+                                                                alt="#{clothes.getModel()}"
+                                                                url="#{clothes.getImage()}">
+                                                </h:graphicImage>
+                                            </div>
+                                            <div class="left panel-box-big">
+
+                                                <h1><h:outputText value="#{clothes.getModel()}" /></h1>
+
+                                                <div class="left panel-details-box">
+                                                    <table>												
+                                                        <tr>
+                                                            <td class="tag cold">
+                                                                <p>Size</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="description">
+                                                                <p><h:outputText value="#{clothes.getSize()}" /></p>
+                                                        </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="tag cold">
+                                                                <p>Color</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="description">
+                                                                <p><h:outputText value="#{clothes.getColor()}" /></p>
+                                                        </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="tag cold">
+                                                                <p>Composition</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="description">
+                                                                <p><h:outputText value="#{clothes.getComposition()}" /></p>
+                                                        </td>
+                                                        </tr>
+
+                                                    </table>
+                                                </div>
+
+
+                                                <div class="left panel-details-box">
+                                                    <table>
+                                                        <tr>
+                                                            <td class="tag cold">
+                                                                <p>Category</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="description">
+                                                                <p><h:outputText value="#{clothes.getCategory()}" /></p>
+                                                        </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="tag cold">
+                                                                <p>Sub-Category</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="description">
+                                                                <p><h:outputText value="#{clothes.getSubcategory()}" /></p>
+                                                        </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="tag hot">
+                                                                <p>Price</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="description">
+                                                                <p><h:outputText value="#{clothes.getPrice()}" /></p>
+                                                        </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="panel">
-                                    <div class="panel-wrapper">
-                                        <div class="left panel-box">					
-                                            <p>Zé Manel</p>
-                                        </div>
-                                        <div class="left panel-box">
-                                            <h3>Description</h3>
-                                            <p>2</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                </ui:repeat>
+                                
+                                
                             </div>				
                         </div>
                     </div><!-- /#slide-block -->

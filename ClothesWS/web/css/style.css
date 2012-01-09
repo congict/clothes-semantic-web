@@ -186,9 +186,8 @@ mark.next:hover, mark.prev:hover{
 
 
 .panel-wrapper img {
-    -webkit-box-shadow: rgba(0,0,0,.24) 0 3px 8px;
-    -moz-box-shadow: rgba(0,0,0,.24) 0 3px 8px;
-    box-shadow: rgba(0,0,0,.24) 0 3px 8px;
+    height: 296px;
+    
 }
 
 .panel-box {

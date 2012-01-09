@@ -21,6 +21,8 @@ import util.SparqlHandler;
  */
 public class SearchBean {
 
+    private ArrayList<Clothes> suggestions = new ArrayList<Clothes>();
+
     public SearchBean() {
     }
 
@@ -39,10 +41,18 @@ public class SearchBean {
     public ArrayList<Clothes> searchSparql(String pattern) {
         SparqlHandler sh = new SparqlHandler();
         sh.search(pattern);
-        return sh.getSearchReults();
+        
+        this.suggestions = sh.getSuggestionsResults();
+        return sh.getSearchResults();
     }
-    
-    
+
+    public ArrayList<Clothes> getSuggestions() {
+        return suggestions;
+    }
+
+    public void setSuggestions(ArrayList<Clothes> suggestions) {
+        this.suggestions = suggestions;
+    }
     
     public List<Clothes> getAllClothes() {
         return new SearchDAO().getAllClothes();

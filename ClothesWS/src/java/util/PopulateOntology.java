@@ -85,9 +85,7 @@ public class PopulateOntology {
         }
         
         Individual indivColor = model.createIndividual(NamedSpace + c.getColor().replace(" ","_"), color);
-        Individual indivMaterial = model.createIndividual(NamedSpace + c.getComposition().replace(" ","_"), material);
-                
-        temp.addLabel("SQL-ID", "Hello");
+        Individual indivMaterial = model.createIndividual(NamedSpace + c.getComposition().replace(" ","_"), material);               
         
         temp.addProperty(hasColor, indivColor);
         temp.addProperty(hasMaterial, indivMaterial);

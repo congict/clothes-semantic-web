@@ -39,7 +39,7 @@ public class SearchBean {
     public ArrayList<Clothes> searchSparql(String pattern) {
         SparqlHandler sh = new SparqlHandler();
         sh.search(pattern);
-        return sh.searchReults;
+        return sh.getSearchReults();
     }
     
     

@@ -41,31 +41,31 @@ public class SearchDAO {
 
     }
     
-    public List<Clothes> search(String pattern) {
-
-        EntityManager em = this.dbManager.getConnectionUpdate();
-        Query qry = null;
-        List<Clothes> list = null;
-        
-
-        try {
-            String query = "select u from Clothes u where u.model LIKE '%";
-            query += pattern;
-            query += "%'";
-            qry = em.createQuery(query);
-            list = qry.getResultList();
-
-
-        } finally {
-            em.close();
-        }
-
-
-        Hibernate.initialize(list);
-
-
-
-        return list;
-
-    }
+//    public List<Clothes> search(String pattern) {
+//
+//        EntityManager em = this.dbManager.getConnectionUpdate();
+//        Query qry = null;
+//        List<Clothes> list = null;
+//        
+//
+//        try {
+//            String query = "select u from Clothes u where u.model LIKE '%";
+//            query += pattern;
+//            query += "%'";
+//            qry = em.createQuery(query);
+//            list = (List<Clothes>) qry.getResultList();
+//
+//
+//        } finally {
+//            em.close();
+//        }
+//
+//
+//        Hibernate.initialize(list);
+//
+//
+//
+//        return list;
+//
+//    }
 }

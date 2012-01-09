@@ -17,9 +17,9 @@ import java.util.Iterator;
 
 public class SparqlHandler {
 
-    OntModel model;
-    public String NamedSpace = "http://www.clothes.pt/ontologies/clothes.owl#";
-    public ArrayList<Clothes> searchReults = new ArrayList<Clothes>();
+    private OntModel model;
+    private String NamedSpace = "http://www.clothes.pt/ontologies/clothes.owl#";
+    private ArrayList<Clothes> searchReults = new ArrayList<Clothes>();
 
     public SparqlHandler() {
         search("big pants for woman");

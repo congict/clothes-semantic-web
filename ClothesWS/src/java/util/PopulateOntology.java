@@ -54,8 +54,13 @@ public class PopulateOntology {
         OntClass color = model.getOntClass(NamedSpace + "Color");
         OntClass material = model.getOntClass(NamedSpace + "Material");
       
+        
+        
         Individual temp = model.createIndividual(NamedSpace + c.getModel().replace(" ", "_"),subCategory);
-       
+        
+        
+        Property SQL_ID = model.getProperty(NamedSpace + "SQL_ID_DATA");
+        
         Property hasColor = model.getProperty(NamedSpace + "hasColor");
         Property hasMaterial = model.getProperty(NamedSpace + "isMadeOf");
         
@@ -63,11 +68,17 @@ public class PopulateOntology {
         Property PriceData = model.getProperty(NamedSpace + "Price_Data");
         Property MaterialData = model.getProperty(NamedSpace + "Material_Data");
         Property ColourData = model.getProperty(NamedSpace + "Colour_Data");
+       
+       
+        
+        Integer idclothes = c.getIdclothes();
+        
         
         if (categoryHasSize){
             OntClass size = model.getOntClass(NamedSpace + "Size");
             Property hasSize = model.getProperty(NamedSpace + "hasSize");
             Property SizeData = model.getProperty(NamedSpace + "Size_Data");
+            
             Individual indivSize = model.createIndividual(NamedSpace + c.getSize()+"", size);
             temp.addProperty(hasSize, indivSize);
             indivSize.addLiteral(SizeData, c.getSize());
@@ -76,14 +87,20 @@ public class PopulateOntology {
         Individual indivColor = model.createIndividual(NamedSpace + c.getColor().replace(" ","_"), color);
         Individual indivMaterial = model.createIndividual(NamedSpace + c.getComposition().replace(" ","_"), material);
                 
+        temp.addLabel("SQL-ID", "Hello");
+        
         temp.addProperty(hasColor, indivColor);
         temp.addProperty(hasMaterial, indivMaterial);
+        
+        
                 
         indivColor.addLiteral(ColourData, c.getColor());
         indivMaterial.addLiteral(MaterialData, c.getComposition());
         
         temp.addLiteral(PriceData, c.getPrice());
         temp.addLiteral(ModelData, c.getModel());
+        temp.addLiteral(SQL_ID, c.getIdclothes());
+        
 
     }
 

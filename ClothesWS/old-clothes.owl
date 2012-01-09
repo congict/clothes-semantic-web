@@ -71,6 +71,12 @@
     <!-- http://www.clothes.pt/ontologies/clothes.owl#hasSize -->
 
     <ObjectProperty rdf:about="&clothes;hasSize">
+        <rdfs:range>
+            <Restriction>
+                <onProperty rdf:resource="&clothes;hasSize"/>
+                <someValuesFrom rdf:resource="&clothes;Size"/>
+            </Restriction>
+        </rdfs:range>
         <rdfs:domain>
             <Restriction>
                 <onProperty rdf:resource="&clothes;hasSize"/>
@@ -83,12 +89,6 @@
                 <someValuesFrom rdf:resource="&clothes;Pants"/>
             </Restriction>
         </rdfs:domain>
-        <rdfs:range>
-            <Restriction>
-                <onProperty rdf:resource="&clothes;hasSize"/>
-                <someValuesFrom rdf:resource="&clothes;Size"/>
-            </Restriction>
-        </rdfs:range>
     </ObjectProperty>
     
 
@@ -152,8 +152,8 @@
 
     <DatatypeProperty rdf:about="&clothes;Model_Data">
         <rdfs:domain rdf:resource="&clothes;Clothing"/>
-        <rdfs:subPropertyOf rdf:resource="&clothes;Colour_Data"/>
         <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
     </DatatypeProperty>
     
 
@@ -163,6 +163,15 @@
     <DatatypeProperty rdf:about="&clothes;Price_Data">
         <rdfs:domain rdf:resource="&clothes;Clothing"/>
         <rdfs:range rdf:resource="&xsd;float"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#SQL_ID_DATA -->
+
+    <DatatypeProperty rdf:about="&clothes;SQL_ID_DATA">
+        <rdfs:domain rdf:resource="&clothes;Clothing"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
     </DatatypeProperty>
     
 

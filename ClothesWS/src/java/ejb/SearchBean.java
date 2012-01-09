@@ -7,6 +7,7 @@ package ejb;
 import dao.SearchDAO;
 import entities.Clothes;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,8 +36,10 @@ public class SearchBean {
     }
     
     
-    public void searchSparql(String pattern) {
-        new SparqlHandler().search(pattern);
+    public ArrayList<Clothes> searchSparql(String pattern) {
+        SparqlHandler sh = new SparqlHandler();
+        sh.search(pattern);
+        return sh.searchReults;
     }
     
     

@@ -43,7 +43,10 @@ public class Search {
         //do someting
      //   this.clothes=new SearchBean().search(inputQuery);
         //this.clothes=new SearchBean().search(inputQuery);
-        new SearchBean().searchSparql(inputQuery);
+        this.clothes = new SearchBean().searchSparql(inputQuery);
+        for (int i=0;i<this.clothes.size();i++){
+            System.out.println("Clothes: " + clothes.get(i).getModel());
+        }
         
 //        for (Clothes c : this.clothes)
   //          System.out.println(c.toString());
